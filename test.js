@@ -2,9 +2,6 @@ console.log("test");
 
 
 // DOMとは　JSを自由に操作する仕組み。DOMは階層構造になっており、ノードを操作していく
-
-
-
 function testFunction(){
   const testObj=document.getElementById("test");
   console.log("testContent:"+testObj.textContent);
@@ -52,6 +49,29 @@ function testFunction(){
   console.log(labelObj);
   document.body.appendChild(labelObj);
 
-  // jqueryのセレクタ
+  // 参考サイト
+  // https://techacademy.jp/magazine/9459#:~:text=%E3%82%BB%E3%83%AC%E3%82%AF%E3%82%BF%E3%81%A8%E3%81%AF%E3%80%81jQuery%E3%81%A7,%E3%81%8C%E3%81%82%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%97%E3%81%BE%E3%81%99%E3%80%82&text=%E3%81%93%E3%81%AEHTML%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6,%E3%81%A8%E3%81%84%E3%81%86%E3%82%BB%E3%83%AC%E3%82%AF%E3%82%BF%E3%82%92%E4%BD%BF%E3%81%84%E3%81%BE%E3%81%99%E3%80%82
+
+  // jqueryのセレクタ タグで指定
   $("p").css("color","blue");
+  let pTag=$("p").type;
+  console.log("pTag->"+pTag);
+
+  //クラス名 .がクラス名を表す
+  $(".pKisu").css("color","green");
+
+
+  // IDでの指定
+  $("#h1").css("color","orange");
+  // classが . ID が #で指定する
+  // 一回でclass,id を指定する。
+  $("#h2,.pGusu").css("color","aqua");
+
+
+  // idなので#
+  let testInput=$("#testInput").val();
+  console.log("testInput->"+testInput);
+
+  $("#title").html("テスト");
+
 }
