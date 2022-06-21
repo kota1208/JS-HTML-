@@ -27,6 +27,4 @@ where id=1;
 select*from test_table;
 
 -- paiza.io で練習
-show databases;
-use test;
-show tables;
+JOIN, GROUP BY, HAVING
