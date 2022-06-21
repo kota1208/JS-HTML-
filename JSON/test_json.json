@@ -1,0 +1,16 @@
+{
+    "person":[
+        {
+            "name":"suzuki",
+            "age":21
+        },
+        {
+            "name":"satou",
+            "age":22
+        },
+        {
+            "name":"nakayama",
+            "age":23
+        }
+    ]
+}
