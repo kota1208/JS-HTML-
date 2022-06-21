@@ -22,3 +22,8 @@ function colorChange(){
     console.log(colorElement.value);
     $('#colorChangeWord').css('color',colorElement.value);
 }
+
+function buttonOff(){
+    alert("buttonOffファンクション");
+    $('#buttonOff').off();
+}
