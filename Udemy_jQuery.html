@@ -5,8 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Udemy_jQuery HTML</title>
+    <link rel="stylesheet" href="css/stylesheet.css">  
 </head>
 <body>
+    <header>
+        <h1>My Photos</h1>
+    </header>
+
+    <div class="container">
+        <div class="img_unit">
+
+        </div>
+    </div>
+    <!-- jQueryのCDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <div id="methodChain"></div>
     
+
+    <script>
+        // JSで、divの間に文字を入れる
+        // $('#img_unit').html('ここに、画像リストが表示されます');
+        // idの#を忘れずに。忘れてもエラーにはならない
+        // $('img_unit').css('margin-top','100px');
+
+        // jQuery はセレクタ、メソッド、パラメータからなる
+        // $はjQueryでよく使う。
+        // $()のあとはセレクタという。CSSのセレクタとほとんど同じ。
+        // getElementByIDでjsは指定していた。jQueryではプロパティで可能
+        
+        // $('.container').html('コンテナー');
+        
+        // htmlメソッド→その要素の中のHTMLを書き換える。
+        // jsでのinnerHTMLに似ている
+        // jQueryのメソット一覧
+        // https://stand-4u.com/web/javascript/jquery-method.html
+
+        // メソッドチェーン→同じ要素に対してメソッドを使用する際に、.でつなげることが可能
+        // $('#methodChain').html('メソッドチェーン').css('background-color','#afeeee');
+
+        // jQueryでajaxを使用し、jsonを取得する
+        $.getJSON('https://h2o-space.com/htmlbook/images.php',function(data){
+            // functionは無名関数
+            // 第二引数はコールバックになっている。
+            // コールバックとは、処理が行われたあとに行う処理のこと
+            // デベロッパーツールのネットワークタブから確認してみるとファイルが取得されている
+            // alert('データを受信しました');
+            for(let i=0;i<data.length;i++){
+                // $('<div class="photo></div>').append('<img src=""'+data[i].path+'">');
+                // ダブルコート、シングルコーテーションが多くて分かりにくいので分解する
+
+                //JSONとして認識されていない
+                // let jsonData2=data[i];
+
+                // jsonから1行取得し、シングルコートをタブル個ーテーションに変換
+                let jsonData=JSON.stringify(data[i]);
+
+                // ここでJSONに変換
+                let j1=JSON.parse(jsonData);
+                let keyList=Object.keys(j1);
+                console.log(j1.path);
+
+                $('<div class="photo"></div>')
+                    .append('<img src="'+data[i].path+'">')
+                    .appendTo('.img_unit');
+
+
+            }
+        });
+
+        // let jsonData=$.getJSON('https://h2o-space.com/htmlbook/images.php');
+        // console.log(jsonData);
+
+       
+
+    </script>
 </body>
 </html>
